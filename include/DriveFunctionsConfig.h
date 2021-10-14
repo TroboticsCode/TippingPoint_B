@@ -44,10 +44,10 @@ void userDrive(void);
   extern motor BackLeft;
   extern motor BackRight;
 
-  #define FrontLeftPort     PORT10
-  #define FrontRightPort    PORT20
-  #define BackLeftPort      PORT1
-  #define BackRightPort     PORT5
+  #define FrontLeftPort     PORT8
+  #define FrontRightPort    PORT9
+  #define BackLeftPort      PORT6
+  #define BackRightPort     PORT20
 
 #elif defined(CHASSIS_2_MOTOR_INLINE)
   extern motor DriveLeft;
@@ -65,8 +65,8 @@ void userDrive(void);
  //#define TANK_CONTROL
 
 #ifdef ARCADE_CONTROL
-  #define HORIZONTALAXIS Axis4
-  #define VERTICALAXIS Axis3
+  #define HORIZONTALAXIS Axis1
+  #define VERTICALAXIS Axis2
 #elif def TANK_CONTROL
   #define LEFTAXIS Axis3
   #define RIGHTAXIS Axis2
@@ -95,7 +95,7 @@ void userDrive(void);
 * this is not the same as the motor gear set
 * Leave as 1 if you have a direct drive
 */
-#define GEAR_RATIO 1.0f
+#define GEAR_RATIO 1.5f
 
 /*     ROTATION_FACTOR 
  * this is a constant ratio

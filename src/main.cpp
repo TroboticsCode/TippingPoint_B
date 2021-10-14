@@ -77,23 +77,44 @@ void autonomous(void)
 
 void usercontrol(void) { 
   //add local user control variables here:
-  tester.setVelocity(100, pct);
-
   //User control code here, inside the loop:
   //remove existing demo code and replace with you own! Then remove this comment
   while (1) {
-    if(Controller1.ButtonA.pressing())
-    {
-      tester.spin(directionType::fwd, 100, velocityUnits::pct);
-    }
-    else
-    {
-      tester.stop(brakeType::coast);
-    }
+    armL.setVelocity(75, percent);
+    armR.setVelocity(75, percent);
+    claw.setVelocity(100, percent);
     //leave the drive code here, it should work if you set up 
     // DriveFunctionsConfig.h properly
     userDrive();
 
+    if(Controller1.ButtonR2.pressing())
+    {
+      armL.spin(forward);
+      armR.spin(forward);
+    }
+    else if(Controller1.ButtonR1.pressing())
+    {
+      armL.spin(reverse);
+      armR.spin(reverse);
+    }
+    else
+    {
+      armL.stop(hold);
+      armR.stop(hold);
+    }
+
+    if(Controller1.ButtonL1.pressing())
+    {
+      claw.spin(forward);
+    }
+    else if(Controller1.ButtonL2.pressing())
+    {
+      claw.spin(reverse);
+    }
+    else
+    {
+      claw.stop(hold);
+    }
     wait(20, msec); // Sleep the task for a short amount of time to
   }
 }
@@ -114,3 +135,4 @@ int main() {
     wait(100, msec);
   }
 }
+
