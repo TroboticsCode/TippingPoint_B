@@ -94,9 +94,9 @@ Discarded input sections
  .text          0x00000000        0x0 build/src/robot-config.o
  .llvm_addrsig  0x00000000        0x5 build/src/robot-config.o
  .text          0x00000000        0x0 build/src/DriveFunctions.o
- .text._Z8moveStopv
-                0x00000000       0x4c build/src/DriveFunctions.o
- .ARM.exidx.text._Z8moveStopv
+ .text._Z8moveStopN3vex9brakeTypeE
+                0x00000000       0x50 build/src/DriveFunctions.o
+ .ARM.exidx.text._Z8moveStopN3vex9brakeTypeE
                 0x00000000        0x8 build/src/DriveFunctions.o
  .text._Z10moveRotatesim
                 0x00000000      0x524 build/src/DriveFunctions.o
@@ -3668,7 +3668,7 @@ LOAD C:\Program Files (x86)\VEX Robotics\VEXcode Pro V5\sdk/vexv5/gcc/libs\libc.
 LOAD C:\Program Files (x86)\VEX Robotics\VEXcode Pro V5\sdk/vexv5/gcc/libs\libm.a
 LOAD C:\Program Files (x86)\VEX Robotics\VEXcode Pro V5\sdk/vexv5/gcc/libs\libgcc.a
 END GROUP
-OUTPUT(build/DemoSetup.elf elf32-littlearm)
+OUTPUT(build/5690ZTippingPoint.elf elf32-littlearm)
 
 .comment        0x00000000       0x9d
  .comment       0x00000000       0x2d build/src/main.o
