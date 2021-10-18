@@ -10,9 +10,9 @@ extern brain Brain;
 extern controller Controller1;
 extern motor armL;
 extern motor armR;
-
 extern motor claw;
 
+extern gps GPS;
 /**
  * Used to initialize code/tasks/devices added using tools in VEXcode Text.
  * 

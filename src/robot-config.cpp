@@ -14,8 +14,7 @@ motor armL = motor(PORT1, GREEN, true);
 motor armR = motor(PORT3, GREEN, false);
 motor claw = motor(PORT2, GREEN, true);
 
-// VEXcode generated functions
-
+gps GPS = gps(PORT19);
 
 /**
  * Used to initialize code/tasks/devices added using tools in VEXcode Text.

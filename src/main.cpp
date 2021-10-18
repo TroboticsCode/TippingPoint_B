@@ -1,7 +1,7 @@
 // ---- START VEXCODE CONFIGURED DEVICES ----
 // Robot Configuration:
 // [Name]               [Type]        [Port(s)]
-// Inertial12           inertial      12              
+// Inertial12           inertial      12
 // ---- END VEXCODE CONFIGURED DEVICES ----
 /*----------------------------------------------------------------------------*/
 /*                                                                            */
@@ -12,11 +12,11 @@
 /*                                                                            */
 /*----------------------------------------------------------------------------*/
 
-
-#include "vex.h"
 #include "Autons.h"
-#include "Functions.h"
 #include "DriveFunctionsConfig.h"
+#include "Functions.h"
+#include "vex.h"
+
 
 using namespace vex;
 
@@ -35,33 +35,30 @@ competition Competition;
 /*  not every time that the robot is disabled.                               */
 /*---------------------------------------------------------------------------*/
 
-void pre_auton(void) 
-{
+void pre_auton(void) {
   // Initializing Robot Configuration. DO NOT REMOVE!
   vexcodeInit();
-  
+
   Controller1.ButtonR1.pressed(cycle_autons);
   Brain.Screen.pressed(cycle_autons);
   return;
 }
 
-void autonomous(void) 
-{
- switch (state)
-  {
-    case NONE:
+void autonomous(void) {
+  switch (state) {
+  case NONE:
     break;
 
-    case AutonR:    
-      Auton1();
+  case AutonR:
+    Auton1();
     break;
 
-    case AutonB:
-  
+  case AutonB:
+
     break;
-          
-    // Default = NO autonomous
-    default:
+
+  // Default = NO autonomous
+  default:
     break;
   }
 }
@@ -75,46 +72,48 @@ void autonomous(void)
 /*  You must modify the code to add your own robot specific commands here.   */
 /*---------------------------------------------------------------------------*/
 
-void usercontrol(void) { 
-  //add local user control variables here:
-  //User control code here, inside the loop:
-  //remove existing demo code and replace with you own! Then remove this comment
+void usercontrol(void) {
+  // add local user control variables here:
+  // User control code here, inside the loop:
+  // remove existing demo code and replace with you own! Then remove this
+  // comment
+
+  armL.setVelocity(75, percent);
+  armR.setVelocity(75, percent);
+  claw.setVelocity(100, percent);
+
+  GPS.calibrate();
+  while (GPS.isCalibrating()) {
+  }
+  Brain.Screen.clearScreen();
+  Controller1.Screen.clearScreen();
+
   while (1) {
-    armL.setVelocity(75, percent);
-    armR.setVelocity(75, percent);
-    claw.setVelocity(100, percent);
-    //leave the drive code here, it should work if you set up 
+
+    // leave the drive code here, it should work if you set up
     // DriveFunctionsConfig.h properly
     userDrive();
 
-    if(Controller1.ButtonR2.pressing())
-    {
+    if (Controller1.ButtonR2.pressing()) {
       armL.spin(forward);
       armR.spin(forward);
-    }
-    else if(Controller1.ButtonR1.pressing())
-    {
+    } else if (Controller1.ButtonR1.pressing()) {
       armL.spin(reverse);
       armR.spin(reverse);
-    }
-    else
-    {
+    } else {
       armL.stop(hold);
       armR.stop(hold);
     }
 
-    if(Controller1.ButtonL1.pressing())
-    {
+    if (Controller1.ButtonL1.pressing()) {
       claw.spin(forward);
-    }
-    else if(Controller1.ButtonL2.pressing())
-    {
+    } else if (Controller1.ButtonL2.pressing()) {
       claw.spin(reverse);
-    }
-    else
-    {
+    } else {
       claw.stop(hold);
     }
+
+    printGPS();
     wait(20, msec); // Sleep the task for a short amount of time to
   }
 }
@@ -135,4 +134,3 @@ int main() {
     wait(100, msec);
   }
 }
-
