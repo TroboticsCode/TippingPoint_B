@@ -80,8 +80,8 @@ void usercontrol(void) {
   //User control code here, inside the loop:
   //remove existing demo code and replace with you own! Then remove this comment
   while (1) {
-    armL.setVelocity(75, percent);
-    armR.setVelocity(75, percent);
+    armL.setVelocity(50, percent);
+    armR.setVelocity(50, percent);
     claw.setVelocity(100, percent);
     //leave the drive code here, it should work if you set up 
     // DriveFunctionsConfig.h properly
