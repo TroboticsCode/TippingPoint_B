@@ -11,7 +11,7 @@ brain  Brain;
 // VEXcode device constructors
 controller Controller1 = controller(primary);
 motor armL = motor(PORT1, GREEN, true);
-motor armR = motor(PORT3, GREEN, false);
+motor armR = motor(PORT19, GREEN, false);
 motor claw = motor(PORT2, GREEN, true);
 
 // VEXcode generated functions
