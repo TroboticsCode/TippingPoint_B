@@ -87,12 +87,12 @@ void usercontrol(void) {
     // DriveFunctionsConfig.h properly
     userDrive();
 
-    if(Controller1.ButtonR2.pressing())
+    if(Controller1.ButtonR1.pressing())
     {
       armL.spin(forward);
       armR.spin(forward);
     }
-    else if(Controller1.ButtonR1.pressing())
+    else if(Controller1.ButtonR2.pressing())
     {
       armL.spin(reverse);
       armR.spin(reverse);

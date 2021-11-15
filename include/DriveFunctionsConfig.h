@@ -116,7 +116,7 @@ void userDrive(void);
 //#define GEAR_SET    BLUE
 #define GEAR_SET    GREEN
 
-#define PID
+//#define PID
 //#define GYRO
 
 #ifdef PID
