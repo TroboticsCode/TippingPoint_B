@@ -17,3 +17,14 @@ void Auton1()
   moveStop(hold);
   clamp(OPEN);
 }
+
+void skills()
+{
+   moveLinear(12, 25, 3000);
+  moveStop(hold);
+  clamp(CLOSE);
+  moveLinear(-12, 25, 3000);
+  moveStop(hold); 
+  moveRotate(90, 25, 500);
+
+}

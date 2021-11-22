@@ -59,6 +59,10 @@ void autonomous(void)
     case AutonB:
   
     break;
+
+    case SKILLS:
+      skills();
+    break;
           
     // Default = NO autonomous
     default:
