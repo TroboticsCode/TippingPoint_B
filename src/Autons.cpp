@@ -20,11 +20,22 @@ void Auton1()
 
 void skills()
 {
-   moveLinear(12, 25, 3000);
+  moveLinear(12, 25, 3000);
   moveStop(hold);
   clamp(CLOSE);
-  moveLinear(-12, 25, 3000);
-  moveStop(hold); 
-  moveRotate(90, 25, 500);
 
+  moveLinear(-6, 25, 3000);
+  moveStop(hold); 
+  moveLift(UP, 3000, 100);
+
+  moveRotate(-120, 100, 5000);
+  moveStop(hold);
+  wait(500, msec);
+
+  moveLinear(20, 100, 5000);
+  moveStop(hold);
+
+  moveLift(DOWN, 500, 100);
+  clamp(OPEN);
+  moveLinear(-12, 100, 3000);
 }

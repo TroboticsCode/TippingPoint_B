@@ -29,15 +29,28 @@ void clamp(bool openClose)
 
 void moveLift(bool upDown, uint32_t time, uint8_t velocity)
 {
-  if(upDown)
+  uint32_t startTime = Brain.timer(timeUnits::msec);
+
+  armL.setVelocity(velocity, pct);
+  armR.setVelocity(velocity, pct);
+
+  armR.setBrake(hold);
+  armL.setBrake(hold);
+
+  while(Brain.timer(msec) - startTime < time)
   {
-    armL.rotateFor(fwd, time, msec, velocity, pct);
-    //armR.rotateFor(fwd, time, msec, velocity, pct);
+    if(upDown)
+    {
+      armL.spin(fwd);
+      armR.spin(fwd);
+    }
+    else
+    {
+      armL.spin(reverse);
+      armR.spin(reverse);
+  
+    }
   }
-  else
-  {
-    //armL.rotateFor(rev, time, msec, velocity, pct);
-    //armR.rotateFor(rev, time, msec, velocity, pct);
- 
-  }
+  armL.stop();
+  armR.stop();
 }
