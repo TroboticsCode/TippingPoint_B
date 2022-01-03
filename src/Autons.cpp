@@ -9,7 +9,6 @@ void Auton1()
 {
  // setRotGains(0, 0, 0, 20, 10); //update PID gains to tune robot
  // setLinGains(0, 0, 0, 20, 10);
-{
 moveLinear(91,50,3000); //drive across field push one goal
 wait(1, seconds);
 moveRotate(40,25,3000); //turn to align with yellow short goal
@@ -32,6 +31,16 @@ clamp(CLOSE);
 moveLinear(-78, 60, 3000); //moves backward towards the blue section
 }
 
+void Auton2()
+{
+  moveLinear(12, 25, 3000);
+  clamp(CLOSE);
+  moveLinear(-12, 25, 3000);
+  moveRotate(90, 25, 3000);
+  moveLift(UP, 3000, 100);
+  moveLinear(12, 25, 3000);
+  clamp(OPEN);
+}
 
 /*
   moveLinear(12, 25, 3000);
@@ -41,7 +50,7 @@ moveLinear(-78, 60, 3000); //moves backward towards the blue section
   moveStop(hold);
   clamp(OPEN);
   */
-}
+
 
 void skills()
 {

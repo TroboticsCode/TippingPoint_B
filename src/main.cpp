@@ -57,7 +57,7 @@ void autonomous(void)
     break;
 
     case AutonB:
-  
+      Auton2();
     break;
 
     case SKILLS:
