@@ -80,9 +80,10 @@ void autonomous(void)
 /*---------------------------------------------------------------------------*/
 
 void usercontrol(void) { 
-  //add local user control variables here:
-  //User control code here, inside the loop:
-  //remove existing demo code and replace with you own! Then remove this comment
+
+armL.setPosition(0, degrees);
+armR.setPosition(0, degrees);
+
   while (1) {
     armL.setVelocity(100, percent);
     armR.setVelocity(100, percent);
@@ -91,6 +92,29 @@ void usercontrol(void) {
     // DriveFunctionsConfig.h properly
     userDrive();
 
+  Brain.Screen.setCursor(1, 1);
+    Brain.Screen.clearScreen();
+    Brain.Screen.print(armL.position(degrees));
+    Brain.Screen.newLine();
+    Brain.Screen.print(armR.position(degrees));
+
+
+if (Controller1.ButtonUp.pressing()) {
+  armL.rotateTo(195, rotationUnits::deg, 25, velocityUnits::pct, false);
+  armR.rotateTo(195, rotationUnits::deg, 25, velocityUnits::pct, true);//arm goes up
+  armL.stop(hold);
+  armR.stop(hold);
+  moveLinear(10, 25, 3000);
+  wait(0.5, seconds);
+clamp(CLOSE);
+wait(1,seconds);
+clamp(OPEN);
+//moveLinear()
+}
+else{
+armL.stop(hold);
+  armR.stop(hold);
+}
     if(Controller1.ButtonR1.pressing())
     {
       armL.spin(forward);

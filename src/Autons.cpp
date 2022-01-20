@@ -17,7 +17,7 @@ moveLinear(-77,50,3000); //drive backward to push yellow goal
 wait(1, seconds);
 moveRotate(-60,25,3000); //turn to align with center yellow goal
 wait(1, seconds);
-moveLinear(75,50,3000); //drive forwad to push center yellow goal
+moveLinear(73,50,3000); //drive forwad to push center yellow goal
 wait(1, seconds);
 moveRotate(55,25,3000); //turn to align with 3rd yellow short goal
 wait(1, seconds);
@@ -26,7 +26,8 @@ wait(1, seconds);
 moveRotate(-51, 25, 3000); //turn to align with blue goal on red square
 wait(1, seconds);
 moveLinear(43, 45, 3000); //moves toward goal
-wait(0, seconds);
+wait(1, seconds);
+moveLinear(1, 25, 2000);
 clamp(CLOSE);
 moveLinear(-78, 60, 3000); //moves backward towards the blue section
 }
@@ -35,11 +36,12 @@ void Auton2()
 {
   moveLinear(12, 25, 3000);
   clamp(CLOSE);
-  moveLinear(-12, 25, 3000);
-  moveRotate(90, 25, 3000);
-  moveLift(UP, 3000, 100);
-  moveLinear(12, 25, 3000);
+  moveLinear(-8, 25, 3000);
+  moveRotate(-120, 25, 3000);
+  //moveLift(UP, 1000, 75);
+  //moveLinear(27, 25, 3000);
   clamp(OPEN);
+  //moveLinear(-25, 45, 3000);
 }
 
 /*
@@ -72,4 +74,17 @@ void skills()
   moveLift(DOWN, 500, 100);
   clamp(OPEN);
   moveLinear(-12, 100, 3000);
+}
+
+void skills120()
+{ 
+ moveLinear(12,100, 3000); //approach first goal
+ clamp(CLOSE); //grabs first goal
+ moveLinear(-11, 100, 3000); //moves backward with first goal
+ moveRotate(80, 25, 3000); //turns with goal
+ moveLinear(48, 100, 3000); //moves across field
+ clamp(OPEN); //lets go of goal
+ moveRotate(14, 100, 3000); //alines with second goal
+ moveLinear(48, 100, 3000); //grabs second goal
+ moveRotate(90, 25, 3000); //moves to aline with middle yellow goal
 }
