@@ -1,7 +1,7 @@
 // ---- START VEXCODE CONFIGURED DEVICES ----
 // Robot Configuration:
 // [Name]               [Type]        [Port(s)]
-// Inertial12           inertial      12              
+// Inertial12           inertial      12
 // ---- END VEXCODE CONFIGURED DEVICES ----
 /*----------------------------------------------------------------------------*/
 /*                                                                            */
@@ -12,11 +12,10 @@
 /*                                                                            */
 /*----------------------------------------------------------------------------*/
 
-
-#include "vex.h"
 #include "Autons.h"
-#include "Functions.h"
 #include "DriveFunctionsConfig.h"
+#include "Functions.h"
+#include "vex.h"
 
 using namespace vex;
 
@@ -35,37 +34,34 @@ competition Competition;
 /*  not every time that the robot is disabled.                               */
 /*---------------------------------------------------------------------------*/
 
-void pre_auton(void) 
-{
+void pre_auton(void) {
   // Initializing Robot Configuration. DO NOT REMOVE!
   vexcodeInit();
-  
+
   Controller1.ButtonR1.pressed(cycle_autons);
   Brain.Screen.pressed(cycle_autons);
   return;
 }
 
-void autonomous(void) 
-{
- switch (state)
-  {
-    case NONE:
+void autonomous(void) {
+  switch (state) {
+  case NONE:
     break;
 
-    case AutonR:    
-      Auton1();
+  case AutonR:
+    Auton1();
     break;
 
-    case AutonB:
-      Auton2();
+  case AutonB:
+    Auton2();
     break;
 
-    case SKILLS:
-      skills();
+  case SKILLS:
+    skills();
     break;
-          
-    // Default = NO autonomous
-    default:
+
+  // Default = NO autonomous
+  default:
     break;
   }
 }
@@ -79,74 +75,61 @@ void autonomous(void)
 /*  You must modify the code to add your own robot specific commands here.   */
 /*---------------------------------------------------------------------------*/
 
-void usercontrol(void) { 
+void usercontrol(void) {
 
-armL.setPosition(0, degrees);
-armR.setPosition(0, degrees);
+  armL.setPosition(0, degrees);
+  armR.setPosition(0, degrees);
 
   while (1) {
     armL.setVelocity(100, percent);
     armR.setVelocity(100, percent);
     claw.setVelocity(100, percent);
-    //leave the drive code here, it should work if you set up 
+    // leave the drive code here, it should work if you set up
     // DriveFunctionsConfig.h properly
     userDrive();
 
-  Brain.Screen.setCursor(1, 1);
+    Brain.Screen.setCursor(1, 1);
     Brain.Screen.clearScreen();
     Brain.Screen.print(armL.position(degrees));
     Brain.Screen.newLine();
     Brain.Screen.print(armR.position(degrees));
 
-
-if (Controller1.ButtonUp.pressing()) {
-  armL.rotateTo(195, rotationUnits::deg, 25, velocityUnits::pct, false);
-  armR.rotateTo(195, rotationUnits::deg, 25, velocityUnits::pct, true);//arm goes up
-  armL.stop(hold);
-  armR.stop(hold);
-  moveLinear(10, 25, 3000);
-  wait(0.5, seconds);
-clamp(CLOSE);
-wait(1,seconds);
-clamp(OPEN);
-//moveLinear()
-}
-else{
-armL.stop(hold);
-  armR.stop(hold);
-}
-    if(Controller1.ButtonR1.pressing())
-    {
+    /*if (Controller1.ButtonUp.pressing()) {
+      armL.rotateTo(195, rotationUnits::deg, 25, velocityUnits::pct, false);
+      armR.rotateTo(195, rotationUnits::deg, 25, velocityUnits::pct, true); // arm goes up
+      armL.stop(hold);
+      armR.stop(hold);
+      moveLinear(10, 25, 3000);
+      wait(0.5, seconds);
+      clamp(CLOSE);
+      wait(1, seconds);
+      clamp(OPEN);
+      // moveLinear()
+    } else {
+      armL.stop(hold);
+      armR.stop(hold);
+    }*/
+    if (Controller1.ButtonR1.pressing()) {
       armL.spin(forward);
       armR.spin(forward);
-    }
-    else if(Controller1.ButtonR2.pressing())
-    {
+    } else if (Controller1.ButtonR2.pressing()) {
       armL.spin(reverse);
       armR.spin(reverse);
-    }
-    else
-    {
+    } else {
       armL.stop(hold);
       armR.stop(hold);
     }
 
-    if(Controller1.ButtonL1.pressing())
-    {
+    if (Controller1.ButtonL1.pressing()) {
       claw.spin(forward);
-    }
-    else if(Controller1.ButtonL2.pressing())
-    {
+    } else if (Controller1.ButtonL2.pressing()) {
       claw.spin(reverse);
-    }
-    else
-    {
+    } else {
       claw.stop(hold);
     }
     wait(20, msec); // Sleep the task for a short amount of time to
   }
 }
-
 
 // Main will set up the competition functions and callbacks.
 
@@ -163,4 +146,3 @@ int main() {
     wait(100, msec);
   }
 }
-

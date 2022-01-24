@@ -12,6 +12,7 @@
 #define AutonR 1
 #define AutonB 2
 #define SKILLS 3
+#define SKILLS120 4
 extern int state;
 
 //auton support function prototypes
@@ -22,5 +23,6 @@ void Paint_Screen(void);
 void Auton1(void);
 void Auton2(void);
 void skills(void);
+void skills120(void);
 
 #endif

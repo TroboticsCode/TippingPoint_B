@@ -47,6 +47,12 @@ void cycle_autons(void)
 
     else if (state == SKILLS)
     {
+        state = SKILLS120;
+        strcpy(state_name, "Skills 120");
+    }
+
+    else if (state == SKILLS120)
+    {
         state = NONE;
         strcpy(state_name, "NONE");
     }
