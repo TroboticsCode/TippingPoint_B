@@ -90,25 +90,9 @@ void usercontrol(void) {
 
     Brain.Screen.setCursor(1, 1);
     Brain.Screen.clearScreen();
-    Brain.Screen.print(armL.position(degrees));
-    Brain.Screen.newLine();
-    Brain.Screen.print(armR.position(degrees));
+    Brain.Screen.print(armPot.value(range10bit));
+   
 
-    /*if (Controller1.ButtonUp.pressing()) {
-      armL.rotateTo(195, rotationUnits::deg, 25, velocityUnits::pct, false);
-      armR.rotateTo(195, rotationUnits::deg, 25, velocityUnits::pct, true); // arm goes up
-      armL.stop(hold);
-      armR.stop(hold);
-      moveLinear(10, 25, 3000);
-      wait(0.5, seconds);
-      clamp(CLOSE);
-      wait(1, seconds);
-      clamp(OPEN);
-      // moveLinear()
-    } else {
-      armL.stop(hold);
-      armR.stop(hold);
-    }*/
     if (Controller1.ButtonR1.pressing()) {
       armL.spin(forward);
       armR.spin(forward);

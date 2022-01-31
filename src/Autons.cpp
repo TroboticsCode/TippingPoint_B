@@ -37,13 +37,15 @@ void Auton2() {
   //old auton code
   moveLinear(15, 25, 3000);
   clamp(CLOSE);
-  moveLinear(-8, 25, 3000);
+  moveLinear(-10, 55, 3000);
   //moveRotate(-120, 25, 3000);
   // moveLift(UP, 1000, 75);
   // moveLinear(27, 25, 3000);
   clamp(OPEN);
   // moveLinear(-25, 45, 3000);
-  moveRotate(-76, 45, 3000);
+  
+  moveRotate(-50, 45, 3000);
+
 }
 
 /*

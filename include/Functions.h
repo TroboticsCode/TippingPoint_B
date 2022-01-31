@@ -18,5 +18,6 @@ void testPID(void);
 
 void clamp(bool openClose);
 void moveLift(bool upDown, uint32_t time, uint8_t velocity);
+void Rings();
 
 #endif

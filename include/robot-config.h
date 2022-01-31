@@ -12,7 +12,7 @@ extern motor armL;
 extern motor armR;
 
 extern motor claw;
-
+extern pot armPot;
 /**
  * Used to initialize code/tasks/devices added using tools in VEXcode Text.
  * 

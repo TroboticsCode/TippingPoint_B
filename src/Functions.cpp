@@ -54,3 +54,20 @@ void moveLift(bool upDown, uint32_t time, uint8_t velocity)
   armL.stop();
   armR.stop();
 }
+void Rings ()
+{
+    while(armPot.value(range10bit)>= 41)
+    {
+      armL.spin(forward , 30,pct);
+      armR.spin(forward,  30,pct);
+    }
+      armL.stop(hold);
+      armR.stop(hold);
+      moveLinear(10, 25, 3000);
+      wait(0.5, seconds);
+      clamp(CLOSE);
+      wait(1, seconds);
+      clamp(OPEN);
+      // moveLinear()
+    
+}

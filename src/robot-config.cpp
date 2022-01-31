@@ -13,7 +13,7 @@ controller Controller1 = controller(primary);
 motor armL = motor(PORT3, GREEN, true);
 motor armR = motor(PORT19, GREEN, false);
 motor claw = motor(PORT2, GREEN, true);
-
+pot armPot = pot(Brain.ThreeWirePort.H);
 // VEXcode generated functions
 
 
