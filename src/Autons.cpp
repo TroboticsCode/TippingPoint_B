@@ -58,25 +58,34 @@ void Auton2() {
   */
 
 void skills() {
-  moveLinear(12, 25, 3000);
-  moveStop(hold);
+  Rings();
+  moveLinear(-10, 25, 3000);
+  armL.stop(coast);
+  armR.stop(coast);//arm falls down
+  wait(1, seconds);
+  moveLinear(12, 25, 3000); //moves forward to colored goal
+  moveStop(hold); //wait
+  clamp(CLOSE); //grabs goal
+
+  moveLinear(-4, 25, 3000); //moves backward
+  moveStop(hold); //wait
+  
+
+  moveRotate(-90, 100, 5000); //turns toward the platform
+  clamp(OPEN); //lets go of goal
+  moveLinear(-2,25,3000);
+  moveRotate(65,100,5000); //turns toward yellow
+  moveLinear(43,25,3000); //goes toward goal
   clamp(CLOSE);
+  
 
-  moveLinear(-6, 25, 3000);
-  moveStop(hold);
-  //moveLift(UP, 3000, 100);
 
-  moveRotate(-170, 100, 5000);
-  //moveStop(hold);
-  //wait(500, msec);
+  moveStop(hold); //wait
 
-  //moveLinear(29, 100, 5000);
-  moveStop(hold);
-
-  //moveLift(DOWN, 500, 100);
-  clamp(OPEN);
-  //moveLinear(-12, 100, 3000);
-  moveRotate(100, 80, 5000) ;
+  
+  clamp(OPEN); //opens claw
+  
+  moveRotate(100, 80, 5000) ; 
 }
 
 void skills120() {

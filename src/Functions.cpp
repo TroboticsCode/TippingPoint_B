@@ -56,15 +56,25 @@ void moveLift(bool upDown, uint32_t time, uint8_t velocity)
 }
 void Rings ()
 {
-    while(armPot.value(range10bit)>= 41)
+    while(armPot.value(range10bit)<= 12)
     {
-      armL.spin(forward , 30,pct);
+      
+       Brain.Screen.setCursor(1, 1);
+      Brain.Screen.clearScreen();
+      Brain.Screen.print(armPot.value(range10bit));armL.spin(forward , 30,pct);
       armR.spin(forward,  30,pct);
+      armL.spin(forward, 30,pct);
+      Brain.Screen.setCursor(2, 1);
+      Brain.Screen.print("Made it!");
     }
       armL.stop(hold);
       armR.stop(hold);
-      moveLinear(10, 25, 3000);
+
+      wait(.5, seconds);
+      moveLinear(10, 25, 3000); //moves forward
       wait(0.5, seconds);
+
+
       clamp(CLOSE);
       wait(1, seconds);
       clamp(OPEN);

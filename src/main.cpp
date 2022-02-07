@@ -111,9 +111,14 @@ void usercontrol(void) {
     } else {
       claw.stop(hold);
     }
+    if (Controller1.ButtonUp.pressing()) {
+      Rings();
+    }
+
     wait(20, msec); // Sleep the task for a short amount of time to
   }
 }
+   
 
 // Main will set up the competition functions and callbacks.
 
