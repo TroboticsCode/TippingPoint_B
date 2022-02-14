@@ -81,3 +81,19 @@ void Rings ()
       // moveLinear()
     
 }
+
+
+void goalApproach( int vel) {
+while (!clawBumper.pressing())
+{
+BackRight.spin(directionType::fwd,vel, velocityUnits::pct);
+BackLeft.spin(directionType::fwd,vel, velocityUnits::pct);
+FrontRight.spin(directionType::fwd,vel, velocityUnits::pct);
+FrontLeft.spin(directionType::fwd,vel, velocityUnits::pct);
+}
+clamp(CLOSE);
+BackRight.stop(brake);
+BackLeft.stop(brake);
+FrontRight.stop(brake);
+FrontLeft.stop(brake);
+}

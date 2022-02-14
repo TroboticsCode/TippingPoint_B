@@ -55,9 +55,15 @@ void autonomous(void) {
   case AutonB:
     Auton2();
     break;
+case AutonY:
+    Auton3();
+    break;
 
   case SKILLS:
     skills();
+    break;
+case SKILLS120:
+    skills120();
     break;
 
   // Default = NO autonomous
@@ -65,6 +71,9 @@ void autonomous(void) {
     break;
   }
 }
+
+
+
 /*---------------------------------------------------------------------------*/
 /*                                                                           */
 /*                              User Control Task                            */

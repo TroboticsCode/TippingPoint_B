@@ -45,7 +45,7 @@ void Auton2() {
   // moveLinear(-25, 45, 3000);
   
   moveRotate(-50, 45, 3000);
-
+  clamp(OPEN);
 }
 
 /*
@@ -57,7 +57,7 @@ void Auton2() {
   clamp(OPEN);
   */
 
-void skills() {
+void skills() { //this grabs one yellow goal and gets the win point
   Rings();
   moveLinear(-10, 25, 3000);
   armL.stop(coast);
@@ -99,3 +99,11 @@ void skills120() {
   moveLinear(48, 100, 3000);  // grabs second goal
   moveRotate(90, 25, 3000);   // moves to aline with middle yellow goal
 }
+
+void Auton3(){ //yellow goal blitz
+
+goalApproach(100);
+moveLinear(-48,100, 3000);
+}
+
+

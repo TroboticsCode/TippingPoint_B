@@ -41,10 +41,14 @@ void cycle_autons(void)
     
     else if (state == AutonB)
     {
+        state = AutonY;
+        strcpy(state_name, "AutonY");
+    }
+else if (state == AutonY)
+    {
         state = SKILLS;
         strcpy(state_name, "Skills");
     }
-
     else if (state == SKILLS)
     {
         state = SKILLS120;
