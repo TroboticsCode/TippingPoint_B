@@ -90,18 +90,17 @@ void skills() { //this grabs one yellow goal and gets the win point
 
 void skills120() {
   clamp(OPEN);
- goalApproach(40);  // grabs first goal
+  goalApproach(40);  // grabs first goal
   wait(2, seconds);
-  moveLinear(-11, 100, 3000); // moves backward with first goal
-  moveLift(true, 250, 50);
+  moveLift(true, 250, 50); // moves lift up
+  moveLinear(75, 100, 4000); // moves FORward with first goal
   armL.setBrake(hold);
   armR.setBrake(hold);
-  moveRotate(-50, 50, 3000);   // turns with goal
-  moveLinear(68, 100, 3000);  // moves across field
-  clamp(OPEN);                // lets go of goal
-  moveRotate(14, 100, 3000);  // alines with second goal
-  moveLinear(48, 100, 3000);  // grabs second goal
-  moveRotate(90, 25, 3000);   // moves to aline with middle yellow goal
+  moveRotate(120, 100, 3000);
+  moveLinear(55, 100, 3000);  // moves across field
+  moveRotate(90,50, 3000); // turns to face platform
+  moveLinear(18,100, 3000); //runs into platform 
+  clamp(OPEN);
 }
 
 void Auton3(){ //yellow goal blitz

@@ -96,5 +96,7 @@ BackRight.stop(brake);
 BackLeft.stop(brake);
 FrontRight.stop(brake);
 FrontLeft.stop(brake);
+claw.setStopping(hold);
 clamp(CLOSE);
+claw.stop();
 }
