@@ -116,8 +116,8 @@ void userDrive(void);
 //#define GEAR_SET    BLUE
 #define GEAR_SET    GREEN
 
-//#define PID
-//#define GYRO
+#define PID
+#define GYRO
 
 #ifdef PID
   void setLinGains(double kP, double kI, double kD, double slewRate, int minDT);
@@ -126,7 +126,7 @@ void userDrive(void);
 
 #ifdef GYRO
   extern inertial myGyro;
-  #define GYRO_PORT PORT19
+  #define GYRO_PORT PORT1
 #endif
 
 #endif

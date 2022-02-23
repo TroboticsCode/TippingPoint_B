@@ -101,6 +101,7 @@ void usercontrol(void) {
     Brain.Screen.clearScreen();
     Brain.Screen.print(armPot.value(range10bit));
    
+ Controller1.ButtonB.pressed(Auton1);
 
     if (Controller1.ButtonR1.pressing()) {
       armL.spin(forward);
