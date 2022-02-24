@@ -6,12 +6,13 @@
 // Put your auton routines in here
 
 void Auton1() {
-  setRotGains(2, 0, 0, 20, 10); //update PID gains to tune robot
+  setRotGains(.001, 0, 0, 20, 10); //update PID gains to tune robot
   setLinGains(200, 0, 0, 20, 10);
 
-moveLinear(20, 80, 3000);
-wait(2, seconds);
-//moveRotate(90, 75, 1500);
+//moveLinear(20, 80, 3000);
+//wait(2, seconds);
+moveLift(true, 250, 50);
+moveRotate(90, 100, 15000);
 
 /*
   moveLinear(91, 50, 3000); // drive across field push one goal
